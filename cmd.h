@@ -16,9 +16,9 @@ void vTaskConfigLED(void *pvParameters)
   // 任务执行
   for (int i = 0; i < 3; i++)
   {
-    digitalWriteFast(PC_13, HIGH);
+    digitalWriteFast(PA_1, HIGH);
     vTaskDelay(100 / portTICK_PERIOD_MS);
-    digitalWriteFast(PC_13, LOW);
+    digitalWriteFast(PA_1, LOW);
     vTaskDelay(100 / portTICK_PERIOD_MS);
   }
   // 任务执行完毕后删除自身

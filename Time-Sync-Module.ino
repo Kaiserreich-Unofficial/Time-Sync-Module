@@ -107,6 +107,8 @@ void setup()
   // 配置PC13为输出
   pinMode(PC13, OUTPUT);
   digitalWriteFast(PC_13, HIGH);
+  // 配置PA1位为输出
+  pinMode(PA1, OUTPUT);
 
   // 初始化串口
   if (*uart1_mode)
