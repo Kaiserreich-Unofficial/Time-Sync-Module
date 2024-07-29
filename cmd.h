@@ -194,6 +194,7 @@ void Exec(const String &cmd, void (*RefreshPWM)())
     xTaskCreate(vTaskConfigLED, "vTaskConfigLED", 128, NULL, 1, NULL);
     WRITECONFIG();
     ClearScreen();
+    __set_FAULTMASK(1); // 关闭所有中断
     NVIC_SystemReset();
   }
   else if (cmd.startsWith("help"))
@@ -210,6 +211,7 @@ void Exec(const String &cmd, void (*RefreshPWM)())
     Serial3.println(F("Rebooting System"));
     // xTaskCreate(vTaskConfigLED, "vTaskConfigLED", 128, NULL, 1, NULL);
     ClearScreen();
+    __set_FAULTMASK(1); // 关闭所有中断
     NVIC_SystemReset();
   }
   else if (cmd.startsWith("clear"))
