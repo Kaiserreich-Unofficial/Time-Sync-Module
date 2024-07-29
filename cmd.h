@@ -194,6 +194,7 @@ void Exec(const String &cmd, void (*RefreshPWM)())
     xTaskCreate(vTaskConfigLED, "vTaskConfigLED", 128, NULL, 1, NULL);
     WRITECONFIG();
     ClearScreen();
+    vTaskDelay(1000 / portTICK_PERIOD_MS); // 延时1s，等待配置生效
     __set_FAULTMASK(1); // 关闭所有中断
     NVIC_SystemReset();
   }
